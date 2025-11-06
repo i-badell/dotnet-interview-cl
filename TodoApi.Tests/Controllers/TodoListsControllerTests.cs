@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TodoApi.Controllers;
 using TodoApi.Data;
 using TodoApi.Dtos.Requests;
+using TodoApi.Dtos.Responses;
 using TodoApi.Models;
 
 namespace TodoApi.Tests;
@@ -36,7 +37,7 @@ public class TodoListsControllerTests
             var result = await controller.GetTodoLists();
 
             Assert.IsType<OkObjectResult>(result.Result);
-            Assert.Equal(2, ((result.Result as OkObjectResult).Value as IList<TodoList>).Count);
+            Assert.Equal(2, ((result.Result as OkObjectResult).Value as IList<TodoListDto>).Count);
         }
     }
 
@@ -52,7 +53,7 @@ public class TodoListsControllerTests
             var result = await controller.GetTodoList(1);
 
             Assert.IsType<OkObjectResult>(result.Result);
-            Assert.Equal(1, ((result.Result as OkObjectResult).Value as TodoList).Id);
+            Assert.Equal(1, ((result.Result as OkObjectResult).Value as TodoListDto).Id);
         }
     }
 
