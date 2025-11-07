@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TodoApi.Models;
+namespace TodoApi.Domain.Models;
 
 public class TodoItem
 {
@@ -11,4 +11,8 @@ public class TodoItem
 
 	public long TodoListId { get; set; }
 	public TodoList TodoList { get; set; } = null!;
+
+	public bool IsDeleted { get; set; }
+	public DateTime? DeletedAt { get; set; }
+	public DateTime LocalUpdatedAt { get; set; }
 }
