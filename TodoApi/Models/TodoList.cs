@@ -1,4 +1,4 @@
-namespace TodoApi.Domain.Models;
+namespace TodoApi.Models;
 
 public class TodoList
 {
