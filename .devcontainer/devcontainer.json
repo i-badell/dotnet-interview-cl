@@ -20,14 +20,23 @@
   "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "dotnet restore && dotnet build",
+  "postCreateCommand": "dotnet tool restore && dotnet restore && dotnet build",
 
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
-        "Postman.postman-for-vscode"
-      ]
+        "Postman.postman-for-vscode",
+        "csharpier.csharpier-vscode", 
+        "ms-dotnettools.csharp"  
+      ],
+      "settings": {
+        "csharpier.runOnSave": true,
+        "editor.defaultFormatter": "csharpier.csharpier-vscode",
+        "[csharp]": {
+          "editor.defaultFormatter": "csharpier.csharpier-vscode"
+        }
+      }
     }
   }
 
